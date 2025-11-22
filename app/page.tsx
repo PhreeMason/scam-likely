@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import ScamSection from '@/components/ScamSection';
 import StatCard from '@/components/StatCard';
-import ImagePlaceholder from '@/components/ImagePlaceholder';
 
 export default function Home() {
   return (
@@ -9,10 +9,10 @@ export default function Home() {
       <div className="bg-blue-600 dark:bg-blue-800 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Scam Awareness: Protecting Yourself & Your Community
+            Scamming 101 with Omar
           </h1>
           <p className="text-xl md:text-2xl text-blue-100">
-            Knowledge is your best defense against fraud
+            Your guide to staying safe in a digital world
           </p>
         </div>
       </div>
@@ -20,8 +20,8 @@ export default function Home() {
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-6 py-16">
 
-        {/* The Scale of the Problem */}
-        <ScamSection title="The Scale of the Problem" id="scale">
+        {/* By The Numbers */}
+        <ScamSection title="By The Numbers" id="scale">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
             <StatCard number="$12.5B" description="Lost to fraud in 2024 (25% increase from 2023)" />
             <StatCard number="77%" description="Of Americans encountered a scam in the last year" />
@@ -30,7 +30,14 @@ export default function Home() {
             <StatCard number="$1,087" description="Average loss per victim" />
           </div>
 
-          <ImagePlaceholder description="Chart showing rising fraud losses 2020-2024 (Source: FTC Consumer Sentinel Network Data Book 2024)" />
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="/ftc-scam-chart.png"
+              alt="Chart showing rising fraud losses 2020-2024 (Source: FTC Consumer Sentinel Network Data Book 2024)"
+              fill
+              className="object-contain"
+            />
+          </div>
 
           <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mt-6">
             <p className="font-semibold mb-2">Data Sources:</p>
@@ -43,8 +50,8 @@ export default function Home() {
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
 
-        {/* Most Common Scams */}
-        <ScamSection title="Most Common Scams" id="common-scams">
+        {/* The Greatest Hits */}
+        <ScamSection title="The Greatest Hits" id="common-scams">
 
           {/* Imposter Scams */}
           <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md mb-8">
@@ -52,7 +59,12 @@ export default function Home() {
 
             <div className="mb-4">
               <p className="font-semibold text-lg mb-2">What It Is:</p>
-              <p>Scammers pretend to be government agencies (IRS, Social Security), companies (Amazon, Microsoft), or banks.</p>
+              <p>Scammers impersonate government agencies, companies, or banks</p>
+              <ul className="list-disc list-inside mt-2 ml-4">
+                <li>IRS, Social Security Administration</li>
+                <li>Amazon, Microsoft, Apple</li>
+                <li>Your bank or credit card company</li>
+              </ul>
             </div>
 
             <div className="mb-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
@@ -74,7 +86,14 @@ export default function Home() {
               <p>$2.95 billion lost in 2024 | $800 median loss</p>
             </div>
 
-            <ImagePlaceholder description='Phone with fake caller ID showing "Social Security Administration"' height="h-48" />
+            <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+              <Image
+                src="https://i.redd.it/a5o2biomb3i81.jpg"
+                alt='Phone with fake caller ID showing "Social Security Administration"'
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
 
           {/* Wrong Number Text Scams */}
@@ -83,7 +102,7 @@ export default function Home() {
 
             <div className="mb-4">
               <p className="font-semibold text-lg mb-2">What It Is:</p>
-              <p>Random text that seems innocent ("Hey, want to get coffee?"). When you reply to say "wrong number," they start a friendly conversation that leads to romance or investment scams.</p>
+              <p>Innocent-looking text → You reply "wrong number" → Friendly conversation → Romance or investment scam</p>
             </div>
 
             <div className="mb-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
@@ -101,7 +120,14 @@ export default function Home() {
               <p>$470 million lost to text scams in 2024 (5x higher than 2020)</p>
             </div>
 
-            <ImagePlaceholder description='Text message screenshot showing innocent "wrong number" message' height="h-48" />
+            <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+              <Image
+                src="https://i.redd.it/a5o2biomb3i81.jpg"
+                alt='Text message screenshot showing innocent "wrong number" message'
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
 
           {/* Pig Butchering Scams */}
@@ -110,12 +136,13 @@ export default function Home() {
 
             <div className="mb-4">
               <p className="font-semibold text-lg mb-2">What It Is:</p>
-              <p>Long-term investment fraud. Scammer builds fake relationship (often romantic) over weeks/months, then convinces you to invest in fake cryptocurrency platform. When you try to withdraw, your money is gone.</p>
-            </div>
-
-            <div className="mb-4">
-              <p className="font-semibold mb-2">Why "Pig Butchering"?</p>
-              <p>Like fattening a pig before slaughter—they build trust before stealing everything.</p>
+              <p>Long-term investment fraud</p>
+              <ul className="list-disc list-inside mt-2 ml-4">
+                <li>Scammer builds fake relationship over weeks/months</li>
+                <li>Convinces you to invest in fake crypto platform</li>
+                <li>When you try to withdraw → money is gone</li>
+                <li>Name comes from "fattening a pig before slaughter"</li>
+              </ul>
             </div>
 
             <div className="mb-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
@@ -132,7 +159,14 @@ export default function Home() {
               </ul>
             </div>
 
-            <ImagePlaceholder description="Dating app profile or fake cryptocurrency trading platform" height="h-48" />
+            <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+              <Image
+                src="https://nz.norton.com/content/dam/blogs/images/norton/am/tinder-scams-1.png"
+                alt="Dating app profile or fake cryptocurrency trading platform"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
 
           {/* Online Shopping Scams */}
@@ -141,7 +175,11 @@ export default function Home() {
 
             <div className="mb-4">
               <p className="font-semibold text-lg mb-2">What It Is:</p>
-              <p>Fake websites, products never delivered, or items don't match description.</p>
+              <ul className="list-disc list-inside">
+                <li>Fake websites</li>
+                <li>Products never delivered</li>
+                <li>Items don't match description</li>
+              </ul>
             </div>
 
             <div className="mb-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
@@ -154,7 +192,14 @@ export default function Home() {
               <p>Second most reported scam category</p>
             </div>
 
-            <ImagePlaceholder description='Fake online shopping website or "too good to be true" product ad' height="h-48" />
+            <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+              <Image
+                src="https://assets.f-secure.com/i/opengraph/articles/4-sneaky-online-shopping-scams.jpg"
+                alt='Fake online shopping website or "too good to be true" product ad'
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
 
           {/* Fake Package Delivery Texts */}
@@ -163,7 +208,7 @@ export default function Home() {
 
             <div className="mb-4">
               <p className="font-semibold text-lg mb-2">What It Is:</p>
-              <p>Text claiming issue with your package with link to "reschedule delivery" or "pay customs fee."</p>
+              <p>Text claiming package issue → Link to "reschedule delivery" or "pay customs fee"</p>
             </div>
 
             <div className="mb-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
@@ -176,7 +221,14 @@ export default function Home() {
               <p>Most commonly reported type of text scam</p>
             </div>
 
-            <ImagePlaceholder description="Fake USPS/FedEx text message" height="h-48" />
+            <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+              <Image
+                src="https://static01.nyt.com/images/2020/08/27/business/27wheels1/merlin_143401959_cdb1e5e7-fdb1-4097-8b0f-ed2ed043fbb5-mediumSquareAt3X.jpg"
+                alt="Fake USPS/FedEx text message"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
 
           {/* Job & Employment Scams */}
@@ -185,7 +237,11 @@ export default function Home() {
 
             <div className="mb-4">
               <p className="font-semibold text-lg mb-2">What It Is:</p>
-              <p>Fake job offers, "task scams" (do simple online tasks, then asked to invest your own money), or pyramid schemes.</p>
+              <ul className="list-disc list-inside">
+                <li>Fake job offers</li>
+                <li>"Task scams" (do simple tasks, then invest your own money)</li>
+                <li>Pyramid schemes</li>
+              </ul>
             </div>
 
             <div className="mb-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
@@ -198,7 +254,14 @@ export default function Home() {
               <p>$501 million lost in 2024 (up from $90 million in 2020)</p>
             </div>
 
-            <ImagePlaceholder description='Fake job posting or "work from home" ad' height="h-48" />
+            <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+              <Image
+                src="https://www.snbonline.com/filesimages/news/Online-Job-Scams.jpg"
+                alt='Fake job posting or "work from home" ad'
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
 
           {/* Romance Scams */}
@@ -207,7 +270,7 @@ export default function Home() {
 
             <div className="mb-4">
               <p className="font-semibold text-lg mb-2">What It Is:</p>
-              <p>Fake online dating profiles. After building emotional connection, scammer claims emergency and needs money.</p>
+              <p>Fake dating profile → Build emotional connection → Emergency excuse → Request money</p>
             </div>
 
             <div className="mb-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
@@ -220,7 +283,14 @@ export default function Home() {
               <p>Often linked to pig butchering; targets people seeking companionship</p>
             </div>
 
-            <ImagePlaceholder description="Fake dating profile with stock photo" height="h-48" />
+            <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+              <Image
+                src="https://www.investright.org/wp-content/uploads/2024/04/pig-butchering-576x1024.png"
+                alt="Fake dating profile with stock photo"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
 
           {/* Tech Support Scams */}
@@ -229,7 +299,11 @@ export default function Home() {
 
             <div className="mb-4">
               <p className="font-semibold text-lg mb-2">What It Is:</p>
-              <p>Pop-up warning "Your computer is infected!" with phone number, or call claiming to be from Microsoft/Apple.</p>
+              <ul className="list-disc list-inside">
+                <li>Pop-up warning: "Your computer is infected!"</li>
+                <li>Phone call claiming to be Microsoft/Apple</li>
+                <li>Charge you to "fix" non-existent problem or install malware</li>
+              </ul>
             </div>
 
             <div className="mb-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
@@ -237,7 +311,14 @@ export default function Home() {
               <p>Pop-up: "VIRUS DETECTED! Call 1-888-XXX-XXXX immediately!" → you call → they charge $500 to "fix" non-existent problem or install malware.</p>
             </div>
 
-            <ImagePlaceholder description="Fake virus warning pop-up" height="h-48" />
+            <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+              <Image
+                src="https://media.nbcboston.com/2022/10/computer-popup-tech-scam.jpg?quality=85&strip=all&resize=1200%2C675"
+                alt="Fake virus warning pop-up"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
 
           {/* Cryptocurrency ATM Scams */}
@@ -246,7 +327,7 @@ export default function Home() {
 
             <div className="mb-4">
               <p className="font-semibold text-lg mb-2">What It Is:</p>
-              <p>Scammer (posing as bank, government, tech support) tells you to deposit cash into Bitcoin ATM to "protect your money" or "resolve an issue."</p>
+              <p>Scammer poses as bank/government/tech support → Tells you to deposit cash into Bitcoin ATM to "protect your money"</p>
             </div>
 
             <div className="mb-4 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
@@ -259,14 +340,21 @@ export default function Home() {
               <p>Crypto scam losses tripled 2021-2023; $1.65 billion in 2024</p>
             </div>
 
-            <ImagePlaceholder description="Bitcoin ATM at gas station/convenience store" height="h-48" />
+            <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+              <Image
+                src="https://consumer.ftc.gov/system/files/styles/social_standard/private/consumer_ftc_gov/images/Impersonator-SocMed-1200x630-7-Bitcoin.png?h=ec041e41&itok=sBfLlAEz"
+                alt="Bitcoin ATM at gas station/convenience store"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
 
-        {/* Warning Signs */}
-        <ScamSection title="Warning Signs of ANY Scam" id="warning-signs">
+        {/* Universal Red Flags */}
+        <ScamSection title="Universal Red Flags" id="warning-signs">
           <div className="bg-red-50 dark:bg-red-900/20 p-8 rounded-lg border-2 border-red-300 dark:border-red-700">
             <h3 className="text-2xl font-bold mb-6 text-red-700 dark:text-red-400">🚨 STOP if they:</h3>
             <ul className="space-y-3 text-lg">
@@ -301,13 +389,20 @@ export default function Home() {
             </ul>
           </div>
 
-          <ImagePlaceholder description="Red flags icon or warning sign list" height="h-48" />
+          <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+            <Image
+              src="https://www.project44.com/wp-content/uploads/2023/05/shutterstock_496174552.jpg"
+              alt="Red flags icon or warning sign list"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
 
-        {/* How to Protect Yourself */}
-        <ScamSection title="How to Protect Yourself" id="protection">
+        {/* Your Defense Playbook */}
+        <ScamSection title="Your Defense Playbook" id="protection">
           <div className="bg-green-50 dark:bg-green-900/20 p-8 rounded-lg">
             <h3 className="text-2xl font-bold mb-6 text-green-700 dark:text-green-400">Simple Steps:</h3>
             <ul className="space-y-3 text-lg">
@@ -353,31 +448,31 @@ export default function Home() {
               </li>
             </ul>
           </div>
-
-          <ImagePlaceholder description="Checklist or shield icon" height="h-48" />
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
 
-        {/* If You've Been Scammed */}
-        <ScamSection title="If You've Been Scammed" id="reporting">
+        {/* What To Do If It Happens */}
+        <ScamSection title="What To Do If It Happens" id="reporting">
           <div className="bg-orange-50 dark:bg-orange-900/20 p-8 rounded-lg">
-            <h3 className="text-xl font-bold mb-4 text-orange-700 dark:text-orange-400">Report it:</h3>
-            <ul className="space-y-2 text-lg mb-6">
+            <h3 className="text-xl font-bold mb-4 text-orange-700 dark:text-orange-400">Report here:</h3>
+            <ul className="space-y-2 text-lg">
               <li><strong>FBI Internet Crime Complaint Center:</strong> www.ic3.gov</li>
               <li><strong>FTC:</strong> ReportFraud.ftc.gov or 877-382-4357</li>
               <li><strong>National Elder Fraud Hotline:</strong> 833-372-8311</li>
               <li><strong>Local police department</strong></li>
               <li><strong>Your bank immediately</strong></li>
             </ul>
-
-            <div className="bg-orange-100 dark:bg-orange-900/40 p-4 rounded">
-              <p className="font-bold text-orange-800 dark:text-orange-300">Don't be embarrassed!</p>
-              <p className="text-orange-700 dark:text-orange-400">Millions fall victim. Reporting helps catch criminals.</p>
-            </div>
           </div>
 
-          <ImagePlaceholder description="Phone with emergency hotline numbers" height="h-48" />
+          <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+            <Image
+              src="https://i.redd.it/a5o2biomb3i81.jpg"
+              alt="Phone with emergency hotline numbers"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -404,7 +499,14 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="Community helping each other or shield protecting people" height="h-48" />
+          <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+            <Image
+              src="https://i00.eu/img/602/1024x1024/85cuot4y/116161.jpg"
+              alt="Community helping each other or shield protecting people"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -458,8 +560,8 @@ export default function Home() {
         {/* Who's Running These Scams */}
         <ScamSection title="Who's Running These Scams?" id="behind-scams">
           <div className="bg-slate-50 dark:bg-slate-900/20 p-8 rounded-lg">
-            <h3 className="text-xl font-bold mb-4">The Dark Reality:</h3>
-            <p className="mb-6">Most pig butchering and online scams are run by <strong>transnational criminal organizations</strong> based in Southeast Asia.</p>
+            <h3 className="text-xl font-bold mb-4">The Reality:</h3>
+            <p className="mb-6"><strong>Transnational criminal organizations</strong> based in Southeast Asia</p>
 
             <div className="mb-6">
               <p className="font-semibold mb-3">Key Locations:</p>
@@ -484,7 +586,14 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="Map of Southeast Asia highlighting Cambodia, Myanmar, Laos, Philippines, and Thailand" />
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="https://cdn.britannica.com/59/261859-050-DD2A279C/Southeast-asia-cambodia-laos-myanmar-thailand-vietnam-malaysia-singapore-brunei-indonesia-philippines-east-timor.jpg"
+              alt="Map of Southeast Asia highlighting Cambodia, Myanmar, Laos, Philippines, and Thailand"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -513,8 +622,22 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="Photos of actual scam compound buildings - massive structures with high security fences" />
-          <ImagePlaceholder description="Rows of workers at computer desks inside a scam compound" />
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/12-06-2024-UNODC-Philippines-2.jpg/image1440x560cropped.jpg"
+              alt="Photos of actual scam compound buildings - massive structures with high security fences"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="https://www.globaldetentionproject.org/wp-content/uploads/2023/06/Detainees-in-Cambodia-Vice.webp"
+              alt="Rows of workers at computer desks inside a scam compound"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -523,7 +646,7 @@ export default function Home() {
         <ScamSection title="The Scammers Are ALSO Victims" id="trafficked-workers">
           <div className="bg-amber-50 dark:bg-amber-900/20 p-8 rounded-lg">
             <p className="text-xl mb-6 font-semibold text-amber-800 dark:text-amber-300">
-              Most people doing the scamming didn't choose this. They are victims of <strong>human trafficking</strong>.
+              Most scammers are victims of <strong>human trafficking</strong>
             </p>
 
             <div className="mb-8">
@@ -573,8 +696,6 @@ export default function Home() {
               </ul>
             </div>
           </div>
-
-          <ImagePlaceholder description="Person at computer desk looking trapped/distressed, or bars/fence imagery symbolizing captivity" />
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -622,7 +743,14 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="Rows of workers at computer desks (from seized compound photos)" />
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="https://www.globaldetentionproject.org/wp-content/uploads/2023/06/Detainees-in-Cambodia-Vice.webp"
+              alt="Rows of workers at computer desks (from seized compound photos)"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -667,7 +795,14 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="Organizational chart or organized crime concept image" />
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="https://www.project44.com/wp-content/uploads/2023/05/shutterstock_496174552.jpg"
+              alt="Organizational chart or organized crime concept image"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -713,7 +848,14 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="U.S. Treasury or Department of Justice seal/logo" height="h-48" />
+          <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+            <Image
+              src="https://dims.apnews.com/dims4/default/5253deb/2147483647/strip/false/crop/8640x5760+0+0/resize/1486x991!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F6a%2F93%2Fd6ffbd1c1cf17c9848a2dcc5265b%2F7e997a51476f4203be3dbd1895cf63fb"
+              alt="U.S. Treasury or Department of Justice seal/logo"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -762,7 +904,14 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="Two images side-by-side - American victim + trafficked worker, with criminal organization symbol in middle" />
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="https://i00.eu/img/602/1024x1024/85cuot4y/116161.jpg"
+              alt="Two images side-by-side - American victim + trafficked worker, with criminal organization symbol in middle"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -773,10 +922,10 @@ export default function Home() {
             <p className="text-xl mb-6 font-semibold">Understanding the Full Picture:</p>
 
             <div className="mb-6">
-              <p className="mb-3">When you receive that "wrong number" text or investment opportunity:</p>
+              <p className="mb-3">When you receive that "wrong number" text:</p>
               <div className="space-y-2 ml-4">
-                <p>❌ <strong>Not just</strong> some person trying to steal from you</p>
-                <p>✅ <strong>Reality:</strong> Likely someone forced to send it under threat of violence</p>
+                <p>❌ <strong>Not:</strong> Just a person trying to steal</p>
+                <p>✅ <strong>Reality:</strong> Likely forced under threat of violence</p>
               </div>
             </div>
 
@@ -810,8 +959,6 @@ export default function Home() {
               </ul>
             </div>
           </div>
-
-          <ImagePlaceholder description="Light breaking through darkness or rescue concept" />
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -831,7 +978,7 @@ export default function Home() {
           <div className="bg-red-50 dark:bg-red-900/20 p-8 rounded-lg">
             <div className="mb-6">
               <p className="font-semibold text-lg mb-2">What It Is:</p>
-              <p>Trained North Korean operatives get remote IT jobs at U.S. and global companies using fake/stolen identities to fund North Korea's weapons programs.</p>
+              <p>North Korean operatives get remote IT jobs using fake identities → Fund weapons programs</p>
             </div>
 
             <div className="mb-6">
@@ -862,7 +1009,14 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="North Korea flag with computer/hacker imagery, or Kim Jong Un" />
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="https://d.ibtimes.co.uk/en/full/1394568/kim-jong-un-designing-institute-korean-peoples-army.jpg"
+              alt="North Korea flag with computer/hacker imagery, or Kim Jong Un"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -913,7 +1067,14 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="Flowchart showing the 4 steps of the North Korean IT worker scheme" />
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="https://d.ibtimes.co.uk/en/full/1394568/kim-jong-un-designing-institute-korean-peoples-army.jpg"
+              alt="Flowchart showing the 4 steps of the North Korean IT worker scheme"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -923,7 +1084,7 @@ export default function Home() {
           <div className="bg-purple-50 dark:bg-purple-900/20 p-8 rounded-lg">
             <div className="mb-6">
               <p className="font-semibold text-lg mb-2">What's a Laptop Farm?</p>
-              <p>An American accomplice's home filled with dozens of company laptops, remotely operated by North Korean workers overseas.</p>
+              <p>American accomplice's home with dozens of company laptops → Remotely operated by North Koreans overseas</p>
             </div>
 
             <div className="mb-6">
@@ -957,8 +1118,22 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="Room with multiple laptops set up - showing a laptop farm operation" />
-          <ImagePlaceholder description="FBI raid concept or seized equipment" height="h-48" />
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="https://upload.wikimedia.org/wikipedia/commons/4/47/North_Korean_Laptop_Farm_%2801%29.jpg"
+              alt="Room with multiple laptops set up - showing a laptop farm operation"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+            <Image
+              src="https://dims.apnews.com/dims4/default/5253deb/2147483647/strip/false/crop/8640x5760+0+0/resize/1486x991!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F6a%2F93%2Fd6ffbd1c1cf17c9848a2dcc5265b%2F7e997a51476f4203be3dbd1895cf63fb"
+              alt="FBI raid concept or seized equipment"
+              fill
+              className="object-contain"
+            />
+          </div>
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -1005,47 +1180,18 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="Stolen data/ransomware concept image or warning symbol" />
-        </ScamSection>
-
-        <hr className="my-16 border-gray-300 dark:border-gray-700" />
-
-        {/* Red Flags for Employers */}
-        <ScamSection title="Red Flags for Employers" id="nk-red-flags">
-          <div className="bg-yellow-50 dark:bg-yellow-900/20 p-8 rounded-lg">
-            <div className="mb-6">
-              <p className="font-semibold text-lg mb-3">Warning Signs During Hiring:</p>
-              <ul className="space-y-2 list-disc list-inside">
-                <li>Resumes with inconsistencies or gaps</li>
-                <li>Candidate looks/sounds different in interview vs. after hiring</li>
-                <li>Requests to ship laptop to different address (last-minute changes)</li>
-                <li>Background of ID photos has same tablecloth/setting</li>
-                <li>90%+ of IT job applicants coming from similar profiles</li>
-              </ul>
-            </div>
-
-            <div className="mb-6">
-              <p className="font-semibold text-lg mb-3">Warning Signs After Hiring:</p>
-              <ul className="space-y-2 list-disc list-inside">
-                <li>Multiple logins from same account in short period</li>
-                <li>Unusual network traffic or remote connections</li>
-                <li>Installation of prohibited remote desktop software</li>
-                <li>Employee juggling multiple jobs/personas</li>
-                <li>Harvesting credentials and session cookies</li>
-                <li>Copying code repositories to personal accounts</li>
-              </ul>
-            </div>
-
-            <div className="bg-yellow-100 dark:bg-yellow-900/40 p-4 rounded">
-              <p className="font-semibold mb-2">Why Hard to Detect:</p>
-              <p>Many are <strong>actually talented developers</strong> - managers reluctant to believe they're North Korean even when caught</p>
-            </div>
+          <div className="my-6 rounded-lg overflow-hidden relative w-full h-96">
+            <Image
+              src="https://www.project44.com/wp-content/uploads/2023/05/shutterstock_496174552.jpg"
+              alt="Stolen data/ransomware concept image or warning symbol"
+              fill
+              className="object-contain"
+            />
           </div>
-
-          <ImagePlaceholder description="Magnifying glass over resume/profile or red flag checklist" height="h-48" />
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
+
 
         {/* Recent Cases & Government Action */}
         <ScamSection title="Recent Cases & Government Action" id="nk-cases">
@@ -1095,176 +1241,14 @@ export default function Home() {
             </div>
           </div>
 
-          <ImagePlaceholder description="Department of Justice or FBI seal" height="h-48" />
-        </ScamSection>
-
-        <hr className="my-16 border-gray-300 dark:border-gray-700" />
-
-        {/* Other North Korean Hacking Tactics */}
-        <ScamSection title='Other North Korean Hacking Tactics' id="nk-other">
-          <div className="bg-slate-50 dark:bg-slate-900/20 p-8 rounded-lg">
-            <h3 className="text-xl font-bold mb-4">Beyond Fake Employment:</h3>
-
-            <div className="mb-6">
-              <p className="font-semibold text-lg mb-3">"Dream Job" Campaign (Lazarus Group):</p>
-              <ul className="space-y-2 list-disc list-inside">
-                <li>Send fake job offers to real defense industry employees</li>
-                <li>Offer high-paying positions at prestigious companies</li>
-                <li>Interview process includes "skills assessment" - actually malware</li>
-                <li>Target: European defense engineers, cryptocurrency industry workers</li>
-              </ul>
-            </div>
-
-            <div className="mb-6 bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded border-l-4 border-yellow-500">
-              <p className="font-semibold mb-2">Example:</p>
-              <p>You work at aerospace company → receive LinkedIn message about exciting job opportunity → download "assessment test" → malware installs → North Korea now has access to company systems</p>
-            </div>
-
-            <div className="mb-6">
-              <p className="font-semibold mb-2">ScoringMathTea Malware:</p>
-              <p>Used to steal credentials and gain persistent access to defense contractors</p>
-            </div>
-
-            <div>
-              <p className="font-semibold mb-2">Cryptocurrency Theft:</p>
-              <p>Lazarus Group positioned insiders within crypto companies to steal digital assets</p>
-            </div>
+          <div className="my-6 rounded-lg overflow-hidden h-64 relative">
+            <Image
+              src="https://dims.apnews.com/dims4/default/5253deb/2147483647/strip/false/crop/8640x5760+0+0/resize/1486x991!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F6a%2F93%2Fd6ffbd1c1cf17c9848a2dcc5265b%2F7e997a51476f4203be3dbd1895cf63fb"
+              alt="Department of Justice or FBI seal"
+              fill
+              className="object-contain"
+            />
           </div>
-
-          <ImagePlaceholder description="Fake job posting or phishing email concept" height="h-48" />
-        </ScamSection>
-
-        <hr className="my-16 border-gray-300 dark:border-gray-700" />
-
-        {/* Who's Behind It All */}
-        <ScamSection title="Who's Behind It All?" id="nk-leadership">
-          <div className="bg-red-50 dark:bg-red-900/20 p-8 rounded-lg">
-            <div className="mb-6">
-              <p className="font-semibold text-lg mb-3">Leadership:</p>
-              <ul className="space-y-2">
-                <li>• <strong>Kim Jong Un</strong> - Made IT a national priority in 2011</li>
-                <li>• <strong>Reconnaissance General Bureau</strong> (North Korean intelligence)</li>
-                <li>• <strong>Department 53</strong> (runs IT worker operations)</li>
-              </ul>
-            </div>
-
-            <div className="mb-6">
-              <p className="font-semibold text-lg mb-3">Associated Hacking Groups:</p>
-              <ul className="space-y-2 list-disc list-inside">
-                <li><strong>APT 45</strong> - Corporate espionage, scams, money laundering</li>
-                <li><strong>Lazarus Group</strong> - Cryptocurrency hacks, Dream Job campaigns</li>
-                <li><strong>Research Center 227</strong> - New AI research unit</li>
-              </ul>
-            </div>
-
-            <div className="bg-red-100 dark:bg-red-900/40 p-6 rounded mb-4">
-              <p className="font-semibold mb-2">Growth:</p>
-              <p>North Korea's cyber divisions grew from <strong>6,800 workers (2022)</strong> to <strong>8,400 workers (2024)</strong></p>
-            </div>
-
-            <div className="bg-white dark:bg-red-900/40 p-6 rounded">
-              <p className="font-semibold mb-2">The Goal:</p>
-              <p>Evade international sanctions and fund nuclear weapons program</p>
-            </div>
-          </div>
-
-          <ImagePlaceholder description="North Korean flag or organizational hierarchy chart" />
-        </ScamSection>
-
-        <hr className="my-16 border-gray-300 dark:border-gray-700" />
-
-        {/* How To Protect Your Company */}
-        <ScamSection title="How To Protect Your Company" id="nk-protection">
-          <div className="bg-green-50 dark:bg-green-900/20 p-8 rounded-lg">
-            <h3 className="text-xl font-bold mb-6 text-green-700 dark:text-green-400">For Employers:</h3>
-
-            <ul className="space-y-3 mb-8">
-              <li className="flex items-start">
-                <span className="text-green-600 dark:text-green-400 mr-3 text-xl">✅</span>
-                <span><strong>Enhanced background checks</strong> - verify identities thoroughly</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-600 dark:text-green-400 mr-3 text-xl">✅</span>
-                <span><strong>In-person interviews when possible</strong> - harder to fake</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-600 dark:text-green-400 mr-3 text-xl">✅</span>
-                <span><strong>Monitor network activity</strong> - watch for unusual logins/remote access</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-600 dark:text-green-400 mr-3 text-xl">✅</span>
-                <span><strong>Limit privileges</strong> - principle of least privilege, disable local admin accounts</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-600 dark:text-green-400 mr-3 text-xl">✅</span>
-                <span><strong>Verify shipping addresses</strong> - investigate last-minute address changes</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-600 dark:text-green-400 mr-3 text-xl">✅</span>
-                <span><strong>Multiple verification methods</strong> - video calls + phone calls + references</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-600 dark:text-green-400 mr-3 text-xl">✅</span>
-                <span><strong>Share information</strong> - report suspicious applicants to authorities</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-green-600 dark:text-green-400 mr-3 text-xl">✅</span>
-                <span><strong>Use risk matrix</strong> - flag combinations of red flags</span>
-              </li>
-            </ul>
-
-            <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded">
-              <p className="font-semibold text-lg mb-3">If You Discover One:</p>
-              <ul className="space-y-2 list-disc list-inside">
-                <li><strong>Don't fire immediately</strong> - they may extort/release data</li>
-                <li>Contact FBI Internet Crime Complaint Center (ic3.gov)</li>
-                <li>Secure all systems and change credentials</li>
-                <li>Assess what data may have been accessed</li>
-              </ul>
-            </div>
-          </div>
-
-          <ImagePlaceholder description="Shield protecting company or security checklist" height="h-48" />
-        </ScamSection>
-
-        <hr className="my-16 border-gray-300 dark:border-gray-700" />
-
-        {/* The National Security Threat */}
-        <ScamSection title="The National Security Threat" id="nk-national-security">
-          <div className="bg-red-50 dark:bg-red-900/20 p-8 rounded-lg">
-            <h3 className="text-xl font-bold mb-6">Why This Matters Beyond Money:</h3>
-
-            <div className="mb-6">
-              <p className="font-semibold text-lg mb-3">Defense Sector Concern:</p>
-              <ul className="space-y-2 list-disc list-inside">
-                <li>North Korean workers increasingly studying AI, drones, defense tech</li>
-                <li>Access to military contractor systems</li>
-                <li>Potential for espionage on weapons development</li>
-              </ul>
-            </div>
-
-            <div className="mb-6">
-              <p className="font-semibold text-lg mb-3">Broader Implications:</p>
-              <ul className="space-y-2 list-disc list-inside">
-                <li>Funding North Korea's nuclear program</li>
-                <li>Building persistent access for future cyberattacks</li>
-                <li>Stealing intellectual property at massive scale</li>
-                <li>Customer data of millions of Americans compromised</li>
-              </ul>
-            </div>
-
-            <div className="bg-red-100 dark:bg-red-900/40 p-6 rounded mb-6 italic text-center">
-              <p className="font-semibold">U.S. Treasury Statement (2025):</p>
-              <p className="mt-2">"DPRK cyber actors are responsible for conducting high-level cyber-enabled espionage, disruptive cyberattacks, and financial theft at a scale unprecedented for a nation-state of North Korea's size."</p>
-            </div>
-
-            <div className="bg-white dark:bg-red-900/40 p-6 rounded text-center">
-              <p className="text-xl font-bold text-red-700 dark:text-red-400">The Challenge:</p>
-              <p className="text-lg mt-2">This is state-sponsored cyber warfare disguised as remote work</p>
-            </div>
-          </div>
-
-          <ImagePlaceholder description="Nuclear missile or national security warning imagery" />
         </ScamSection>
 
         <hr className="my-16 border-gray-300 dark:border-gray-700" />
@@ -1282,21 +1266,6 @@ export default function Home() {
                   <li>Report suspicious job postings</li>
                 </ul>
               </div>
-
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg">
-                <h3 className="font-bold text-lg mb-4 text-purple-600 dark:text-purple-400">For Business Owners/Managers:</h3>
-                <ul className="space-y-2 list-disc list-inside">
-                  <li>Implement rigorous hiring verification</li>
-                  <li>Monitor network activity</li>
-                  <li>Report suspected cases to FBI</li>
-                  <li>Share threat intelligence with other companies</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg text-center">
-              <p className="text-xl font-bold mb-3">The Bigger Picture:</p>
-              <p className="text-lg">This isn't just about scams - it's about international sanctions evasion, weapons funding, and national security threats operating through our everyday job market.</p>
             </div>
           </div>
         </ScamSection>
@@ -1343,7 +1312,7 @@ export default function Home() {
               Stay Safe. Stay Informed.
             </h2>
             <p className="text-xl text-blue-100">
-              Share this information with your friends and family
+              Thanks for coming to my TED talk
             </p>
           </div>
         </div>
